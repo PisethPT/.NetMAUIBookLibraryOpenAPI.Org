@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:model="clr-namespace:BookLibraryOpenAPI.Org.Models"
+             xmlns:type="clr-namespace:BookLibraryOpenAPI.Org.Query"
+             xmlns:viewmodel="clr-namespace:BookLibraryOpenAPI.Org.ViewModels"
+             xmlns:listconverter="clr-namespace:BookLibraryOpenAPI.Org.Converters"
+             x:Class="BookLibraryOpenAPI.Org.MainPage"
+             x:DataType="viewmodel:BookViewModel"
+             BackgroundColor="Silver">
+
+    <ContentPage.Resources>
+        <listconverter:ListConverter x:Key="stringConverter"/>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="40,auto, auto, *, auto, *"
+          RowSpacing="8"
+          Padding="0">
+        <ActivityIndicator IsRunning="True" 
+                           IsVisible="{Binding IsBusy}" 
+                           HeightRequest="30" 
+                           WidthRequest="30"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"/>
+        
+        <SearchBar Placeholder="Search..."/>
+        
+    <!--Book Options-->
+        <CollectionView Grid.Row="1"
+                        Margin="25,0,0,0"
+                        ItemsSource="{Binding BooksType}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="2">
+                        <Frame Padding="5">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookViewModel}}, Path=GetTrendingBookTypeCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            <Label Text="{Binding .}"
+                                   VerticalTextAlignment="Center"/>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!-- Trending Books Text -->
+        <Label Grid.Row="2"
+               Text="Trending Books"
+               FontSize="20"
+               Margin="25,0,0,0"
+               TextColor="Black"
+               FontAttributes="Bold"/>
+
+    <!-- Trending Books Frame -->
+        <Frame Grid.Row="3"
+               Margin="25,0,-25,0"
+               CornerRadius="25"
+               Padding="20,-15,0,0"
+               BackgroundColor="Silver"
+               HasShadow="True"
+               BorderColor="SlateGray">
+            <CollectionView
+                ItemsSource="{Binding TrendingBook.works}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Work">
+                        <Grid Padding="10">
+                            <Frame Padding="0"
+                                   CornerRadius="0"
+                                   BorderColor="Transparent"
+                                   BackgroundColor="Transparent">
+                                <Grid RowDefinitions=".70*, .1*, .1*, .1*"
+                                      ColumnDefinitions=".6*, .4*">
+                                    <Frame Grid.Row="0"
+                                           Grid.ColumnSpan="2"
+                                           HeightRequest="200"
+                                           WidthRequest="150"
+                                           Padding="0"
+                                           CornerRadius="18"
+                                           BorderColor="Transparent">
+                                        <Image Source="{Binding cover_i, StringFormat='https://covers.openlibrary.org/w/id/{0}-M.jpg'}"
+                                               Aspect="Fill"/>
+                                    </Frame>
+                                    <Label Grid.Row="1"
+                                           Grid.ColumnSpan="2"
+                                           Text="{Binding title}"
+                                           Margin="0,-20,0,0"
+                                           WidthRequest="150"
+                                           FontSize="16"
+                                           LineBreakMode="TailTruncation"/>
+
+                                    <Label Grid.Row="3"
+                                           Grid.Column="0"
+                                           Text="{Binding first_publish_year, StringFormat='First published in {0}'}"
+                                           FontSize="Micro"
+                                           Margin="0,0,0,0"/>
+                                    
+                                    <Label Grid.Row="2"
+                                           Grid.ColumnSpan="2"
+                                           Margin="0,-25,0,0"
+                                           WidthRequest="150"
+                                           Text="{Binding author_name, Converter={StaticResource stringConverter}, StringFormat='by {0}'}"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Start"
+                                           LineBreakMode="TailTruncation"/>
+                                    <Button Grid.Row="3"
+                                            Grid.Column="1"
+                                            Text="More"
+                                            Padding="0"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </Frame>
+        
+    <!-- Trending Books Text-->
+        <Label Grid.Row="4"
+               Text="Trending Books"
+               FontSize="20"
+               Margin="25,0,0,0"
+               TextColor="Black"
+               FontAttributes="Bold"/>
+        
+    <!-- Trending Book Frame -->
+        <Frame Grid.Row="5"
+               Margin="25,0,25,-25"
+               CornerRadius="25"
+               HasShadow="True"
+               BackgroundColor="Silver">
+            
+        </Frame>
+
+    </Grid>
+
+</ContentPage>

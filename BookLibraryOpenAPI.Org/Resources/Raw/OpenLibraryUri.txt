@@ -1,0 +1,26 @@
+﻿https://openlibrary.org/
+
+https://openlibrary.org/search?subject=
+https://openlibrary.org/search/authors?q=
+https://openlibrary.org/search/inside?q=
+https://openlibrary.org/search/lists?q=
+
+https://openlibrary.org/languages.json
+
+ex: https://openlibrary.org/languages/rum
+    Code rum
+    Name Romanian
+
+ + noted:  ../languages/{query as 3 digit}
+
+ https://openlibrary.org/search?q=language:rum
+
+
+
+    public class Languages
+    {
+        public string name { get; set; }
+        public string key { get; set; }
+        public int count { get; set; }
+    }
+
