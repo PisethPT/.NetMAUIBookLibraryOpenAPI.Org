@@ -1,6 +1,7 @@
 ﻿using BookLibraryOpenAPI.Org.Query;
 using BookLibraryOpenAPI.Org.Services;
 using BookLibraryOpenAPI.Org.ViewModels;
+using BookLibraryOpenAPI.Org.Views;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
@@ -28,6 +29,9 @@ namespace BookLibraryOpenAPI.Org
 
             builder.Services.AddHttpClient<IBookService, BookService>();
             builder.Services.AddTransient<BookViewModel>();
+
+            builder.Services.AddTransient<BookDetail>();
+            builder.Services.AddTransient<BookDetailViewModel>();
 
             return builder.Build();
         }

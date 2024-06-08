@@ -112,8 +112,10 @@
                                            LineBreakMode="TailTruncation"/>
                                     <Button Grid.Row="3"
                                             Grid.Column="1"
-                                            Text="More"
-                                            Padding="0"/>
+                                            Text="Detail"
+                                            Padding="0"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookViewModel}}, Path=BookDetailCommand}"
+                                            CommandParameter="{Binding .}"/>
                                 </Grid>
                             </Frame>
                         </Grid>

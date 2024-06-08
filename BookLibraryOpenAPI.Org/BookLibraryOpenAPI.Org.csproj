@@ -70,4 +70,10 @@
 	  <Folder Include="Handlers\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Views\BookDetail.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

@@ -52,5 +52,16 @@ public partial class BookViewModel : BaseViewModel
         }
     }
 
+    [RelayCommand]
+    async Task BookDetail(TrendingBookModel trendingBook)
+    {
+        await Shell.Current.GoToAsync($"{nameof(BookDetail)}", true,
+            new Dictionary<string, object>
+            {
+                //{ nameof(BookDetail), new object()},
+                {$"{nameof(BookDetail)}", trendingBook},
+            });
+    }
+
 }
 

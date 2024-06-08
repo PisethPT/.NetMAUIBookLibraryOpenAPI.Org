@@ -7,6 +7,7 @@ internal class BookService : IBookService
 {
     private readonly HttpClient httpClient;
     private const string main_url = "https://openlibrary.org/";
+    private readonly string jsonExtension = ".json";
     private TrendingBookModel trendingBook { get; set; }
 
     public BookService(HttpClient httpClient)
@@ -29,15 +30,16 @@ internal class BookService : IBookService
 
     public async Task<TrendingBookModel> GetTrendingBooksType(string type)
     {
-        var jsonExtension = ".json";
         var uri = $"{main_url}trending/{type}{jsonExtension}";
         var response = await httpClient.GetAsync(uri);
-        if(response.IsSuccessStatusCode)
-        {
+        if (response.IsSuccessStatusCode)
             trendingBook = await response.Content.ReadFromJsonAsync<TrendingBookModel>();
-           // await Shell.Current.DisplayAlert("Response", $"{response.StatusCode}", "OK");
-        }
         return trendingBook;
+    }
+
+    public Task<Languages> GetLanguagesAsync()
+    {
+        throw new NotImplementedException();
     }
 }
 

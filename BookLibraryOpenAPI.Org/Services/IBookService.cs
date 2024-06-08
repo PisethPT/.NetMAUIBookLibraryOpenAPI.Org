@@ -5,5 +5,6 @@ public interface IBookService
 {
     Task<TrendingBookModel> GetTrendingBookAsync();
     Task<TrendingBookModel> GetTrendingBooksType(string type);
+    Task<Languages> GetLanguagesAsync();
 }
 
