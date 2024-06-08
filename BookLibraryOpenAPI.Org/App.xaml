@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BookLibraryOpenAPI.Org"
+             xmlns:listconverter="clr-namespace:BookLibraryOpenAPI.Org.Converters"
              x:Class="BookLibraryOpenAPI.Org.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -9,6 +10,8 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <listconverter:ListConverter x:Key="stringConverter"/>
         </ResourceDictionary>
     </Application.Resources>
+      
 </Application>

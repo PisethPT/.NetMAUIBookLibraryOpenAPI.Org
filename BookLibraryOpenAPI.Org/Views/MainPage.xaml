@@ -10,10 +10,6 @@
              x:DataType="viewmodel:BookViewModel"
              BackgroundColor="Silver">
 
-    <ContentPage.Resources>
-        <listconverter:ListConverter x:Key="stringConverter"/>
-    </ContentPage.Resources>
-    
     <Grid RowDefinitions="40,auto, auto, *, auto, *"
           RowSpacing="8"
           Padding="0">

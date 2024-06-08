@@ -53,13 +53,13 @@ public partial class BookViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task BookDetail(TrendingBookModel trendingBook)
+    async Task BookDetail(Work work)
     {
         await Shell.Current.GoToAsync($"{nameof(BookDetail)}", true,
             new Dictionary<string, object>
             {
                 //{ nameof(BookDetail), new object()},
-                {$"{nameof(BookDetail)}", trendingBook},
+                {"Work", work},
             });
     }
 

@@ -4,14 +4,153 @@
              x:Class="BookLibraryOpenAPI.Org.Views.BookDetail"
              xmlns:viewmodel="clr-namespace:BookLibraryOpenAPI.Org.ViewModels"
              x:DataType="viewmodel:BookDetailViewModel"
-             Title="BookDetail">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Background="Silver">
+    <Grid RowDefinitions="150, *"
+          ColumnDefinitions="*,auto,*">
 
-        <Button Text="Back"
+        <Button Grid.Row="0"
+                Text="Back"
+                WidthRequest="60"
+                HeightRequest="35"
+                Padding="0"
+                Margin="10"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
                 Command="{Binding BackCommand}"/>
-    </VerticalStackLayout>
+        <Frame Grid.Row="1"
+               Grid.ColumnSpan="3"
+               BackgroundColor="White"
+               CornerRadius="20"
+               HasShadow="True">
+            <Grid RowDefinitions=".25*, .75*">
+                <VerticalStackLayout Grid.Row="1">
+                    <Label Text="{Binding Work.title}"
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Work.author_name , Converter={StaticResource stringConverter}, StringFormat='by {0}'}"/>
+                    <!--<Line X1="350"
+                          Stroke="Red" />-->
+                    <Rectangle
+                        Fill="Silver"
+                        HeightRequest="3"
+                        WidthRequest="380"
+                        Margin="0,15"
+                        HorizontalOptions="Center"/>
+                    <Grid RowDefinitions="auto, 50, auto, *, 40 "
+                          ColumnDefinitions=".20*, .20*, .20*, .40*"
+                          ColumnSpacing="10"
+                          RowSpacing="10">
+                        <Label Grid.Row="0"
+                               Grid.ColumnSpan="2"
+                               Text="About Book"
+                               FontSize="20"/>
+                        <Label Grid.Row="0"
+                               Grid.Column="2"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="End"
+                               Text="Author Info"
+                               FontSize="20"/>
+                        <Frame Grid.Row="1"
+                               Grid.Column="0"
+                               Padding="2"
+                               CornerRadius="10"
+                               BackgroundColor="LightGray">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Pages"
+                                       HorizontalOptions="Center"
+                                       FontSize="Subtitle"
+                                       TextColor="DarkGray"/>
+                                <Label Text="{Binding Work.edition_count}"
+                                       HorizontalOptions="Center"
+                                       FontAttributes="Bold"
+                                       FontSize="18"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="1"
+                               Grid.Column="1"
+                               Padding="2"
+                               CornerRadius="10"
+                               BackgroundColor="LightGray">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Cover"
+                                       HorizontalOptions="Center"
+                                       FontSize="Subtitle"
+                                       TextColor="DarkGray"/>
+                                <Label Text="{Binding Work.public_scan_b}"
+                                       HorizontalOptions="Center"
+                                       FontAttributes="Bold"
+                                       FontSize="18"/>
+                            </StackLayout>
+                        </Frame>                        
+                        
+                        <Frame Grid.Row="1"
+                               Grid.Column="2"
+                               Padding="2"
+                               CornerRadius="10"
+                               BackgroundColor="LightGray">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Year"
+                                       HorizontalOptions="Center"
+                                       FontSize="Subtitle"
+                                       TextColor="DarkGray"/>
+                                <Label Text="{Binding Work.first_publish_year}"
+                                       HorizontalOptions="Center"
+                                       FontAttributes="Bold"
+                                       FontSize="18"/>
+                            </StackLayout>
+                        </Frame>
+                        
+                        <Frame Grid.Row="1"
+                               Grid.Column="3"
+                               Padding="2"
+                               CornerRadius="10"
+                               BackgroundColor="LightGray">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Language"
+                                       HorizontalOptions="Center"
+                                       FontSize="Subtitle"
+                                       TextColor="DarkGray"/>
+                                <Label Text="{Binding Work.language, Converter={StaticResource stringConverter}}"
+                                       HorizontalOptions="Center"
+                                       FontAttributes="Bold"
+                                       FontSize="18"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Label Grid.Row="2"
+                               Grid.ColumnSpan="4"
+                               Text="Description"
+                               FontSize="16"
+                               TextColor="Gray"/>
+
+                        <Label Grid.Row="3"
+                               Grid.ColumnSpan="4"
+                               Text="{Binding Work.d}"/>
+
+                        <Button Grid.Row="4"
+                                Grid.ColumnSpan="4"
+                                Text="{Binding Work.availability.status}"/>
+
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+
+        </Frame>
+        
+        <Frame Grid.RowSpan="2"
+               Grid.Column="1"
+               HeightRequest="230"
+               WidthRequest="170"
+               Padding="0"
+               CornerRadius="18"
+               VerticalOptions="Start"
+               Margin="0,80,0,0"
+               HasShadow="True"
+               BorderColor="Transparent">
+            <Image Source="{Binding Work.cover_i, StringFormat='https://covers.openlibrary.org/w/id/{0}-M.jpg'}"
+       Aspect="Fill"/>
+        </Frame>
+
+    </Grid>
 </ContentPage>
