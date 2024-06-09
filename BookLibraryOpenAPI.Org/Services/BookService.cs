@@ -1,5 +1,6 @@
 ﻿using BookLibraryOpenAPI.Org.Models;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 #nullable disable
 namespace BookLibraryOpenAPI.Org.Services;
@@ -8,6 +9,8 @@ internal class BookService : IBookService
     private readonly HttpClient httpClient;
     private const string main_url = "https://openlibrary.org/";
     private readonly string jsonExtension = ".json";
+    private List<Languages> languages { get; set; }
+
     private TrendingBookModel trendingBook { get; set; }
 
     public BookService(HttpClient httpClient)
@@ -37,9 +40,14 @@ internal class BookService : IBookService
         return trendingBook;
     }
 
-    public Task<Languages> GetLanguagesAsync()
+    // read languages data from json file inside project
+    public async Task<List<Languages>> GetLanguagesAsync()
     {
-        throw new NotImplementedException();
+        using var stream = await FileSystem.OpenAppPackageFileAsync("languages.json");
+        using var reader = new StreamReader(stream);
+        var content = await reader.ReadToEndAsync();
+        languages = JsonSerializer.Deserialize<List<Languages>>(content);
+        return languages;
     }
 }
 

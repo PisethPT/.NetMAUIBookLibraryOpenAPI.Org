@@ -30,7 +30,7 @@ public class LastModified
 public class Root
 {
     public string title { get; set; }
-    public List<Author> authors { get; set; }
+   // public List<Author> authors { get; set; }
     public string key { get; set; }
     public Type type { get; set; }
     public List<int> covers { get; set; }

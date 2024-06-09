@@ -1,0 +1,77 @@
+[
+    {
+      "name": "English",
+      "key": "/languages/eng",
+      "count": 17971282
+    },
+    {
+      "name": "German",
+      "key": "/languages/ger",
+      "count": 2132292
+    },
+    {
+      "name": "French",
+      "key": "/languages/fre",
+      "count": 1722236
+    },
+    {
+      "name": "Spanish",
+      "key": "/languages/spa",
+      "count": 1382894
+    },
+    {
+      "name": "Russian",
+      "key": "/languages/rus",
+      "count": 699634
+    },
+    {
+      "name": "Italian",
+      "key": "/languages/ita",
+      "count": 684693
+    },
+    {
+      "name": "Chinese",
+      "key": "/languages/chi",
+      "count": 668382
+    },
+    {
+      "name": "Japanese",
+      "key": "/languages/jpn",
+      "count": 493332
+    },
+    {
+      "name": "Portuguese",
+      "key": "/languages/por",
+      "count": 308046
+    },
+    {
+      "name": "Arabic",
+      "key": "/languages/ara",
+      "count": 307022
+    },
+    {
+      "name": "Hebrew",
+      "key": "/languages/heb",
+      "count": 212993
+    },
+    {
+      "name": "Korean",
+      "key": "/languages/kor",
+      "count": 205034
+    },
+    {
+      "name": "Polish",
+      "key": "/languages/pol",
+      "count": 188957
+    },
+    {
+      "name": "Dutch",
+      "key": "/languages/dut",
+      "count": 167100
+    },
+    {
+      "name": "Latin",
+      "key": "/languages/lat",
+      "count": 132920
+    }
+  ]
