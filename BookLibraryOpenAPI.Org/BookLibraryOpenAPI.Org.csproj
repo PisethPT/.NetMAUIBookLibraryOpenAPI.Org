@@ -52,6 +52,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\openlibrary_logo.png" />
 	  <None Remove="Resources\Raw\languages.json" />
 	  <None Remove="Resources\raw\OpenLibraryUri.txt" />
 	  <None Remove="Resources\raw\Subjects.txt" />
