@@ -4,6 +4,7 @@
              x:Class="BookLibraryOpenAPI.Org.Views.BookDetail"
              xmlns:viewmodel="clr-namespace:BookLibraryOpenAPI.Org.ViewModels"
              x:DataType="viewmodel:BookDetailViewModel"
+             Shell.PresentationMode="Modal"
              Background="Silver">
     <Grid RowDefinitions="150, *"
           ColumnDefinitions="*,auto,*">

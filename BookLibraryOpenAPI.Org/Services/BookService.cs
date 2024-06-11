@@ -12,21 +12,19 @@ internal class BookService : IBookService
     private List<Languages> languages { get; set; }
 
     private TrendingBookModel trendingBook { get; set; }
+    private TrendingBookModel booksNow { get; set; }
 
     public BookService(HttpClient httpClient)
     {
         this.httpClient = httpClient;
     }
+
     public async Task<TrendingBookModel> GetTrendingBookAsync()
     {
         var trending_today = "trending/daily.json";
         var uri = $"{main_url}{trending_today}";
         var response = await httpClient.GetAsync(uri);
-        if (response.IsSuccessStatusCode)
-        {
-            trendingBook = await response.Content.ReadFromJsonAsync<TrendingBookModel>();
-           // await Shell.Current.DisplayAlert("Response", $"{response.StatusCode}", "OK");
-        }
+        trendingBook = await GetResponse(response);
 
         return trendingBook;
     }
@@ -35,8 +33,7 @@ internal class BookService : IBookService
     {
         var uri = $"{main_url}trending/{type}{jsonExtension}";
         var response = await httpClient.GetAsync(uri);
-        if (response.IsSuccessStatusCode)
-            trendingBook = await response.Content.ReadFromJsonAsync<TrendingBookModel>();
+        trendingBook = await GetResponse(response);
         return trendingBook;
     }
 
@@ -48,6 +45,26 @@ internal class BookService : IBookService
         var content = await reader.ReadToEndAsync();
         languages = JsonSerializer.Deserialize<List<Languages>>(content);
         return languages;
+    }
+
+    public async Task<TrendingBookModel> GetBooksNow(string type)
+    {
+        var uri = $"{main_url}{type}";
+        var response = await httpClient.GetAsync(uri);
+        booksNow = await GetResponse(response);
+        await Shell.Current.DisplayAlert("Error", $"{response.StatusCode }{booksNow.works.Count}", "OK");
+        return booksNow;
+    }
+
+
+
+    // get response method
+    private async Task<TrendingBookModel> GetResponse(HttpResponseMessage response)
+    {
+        TrendingBookModel trendingBookModel = new TrendingBookModel();
+        if (response.IsSuccessStatusCode)
+             trendingBookModel = await response.Content.ReadFromJsonAsync<TrendingBookModel>();
+        return trendingBookModel;
     }
 }
 

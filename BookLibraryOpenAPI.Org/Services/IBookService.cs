@@ -4,7 +4,9 @@ namespace BookLibraryOpenAPI.Org.Services;
 public interface IBookService
 {
     Task<TrendingBookModel> GetTrendingBookAsync();
+    Task<List<Languages>> GetLanguagesAsync(); // from directory json file
     Task<TrendingBookModel> GetTrendingBooksType(string type);
-    Task<List<Languages>> GetLanguagesAsync();
+    Task<TrendingBookModel?> GetBooksNow(string type);
+
 }
 

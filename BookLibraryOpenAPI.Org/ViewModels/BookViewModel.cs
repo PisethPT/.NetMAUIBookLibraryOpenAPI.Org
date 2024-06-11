@@ -12,9 +12,13 @@ public partial class BookViewModel : BaseViewModel
     public IBookService bookService { get; }
     [ObservableProperty]
     private TrendingBookModel? trendingBook;
+    [ObservableProperty]
+    private TrendingBookModel? bookNow;
     public ObservableCollection<Languages> Language { get; } = new();
     [ObservableProperty]
     private List<string> booksType = new() { "now", "daily", "weekly", "monthly", "yearly", "forever" };
+
+    Random random = new Random();
 
     public BookViewModel(IBookService bookService)
     {
@@ -27,11 +31,13 @@ public partial class BookViewModel : BaseViewModel
     {
         try
         {
-            var lagauges = await bookService.GetLanguagesAsync();
-            if (lagauges!.Count() != 0)
+            var laguages = await bookService.GetLanguagesAsync();
+            if (laguages!.Count() != 0)
                 Language.Clear();
-            foreach (var language in lagauges)
+            foreach (var language in laguages)
                 Language.Add(language);
+
+            await GetBooksNow();
         }catch (Exception ex)
         {
             Debug.WriteLine(ex);
@@ -53,6 +59,27 @@ public partial class BookViewModel : BaseViewModel
             await Shell.Current.DisplayAlert("Error",$"{ex.Message}","OK");
         }
     }
+
+    async Task GetBooksNow()
+    {
+        try
+        {
+            int index = 0;
+            if(Language.Count > 0)
+            index = random.Next(0, Language.Count);
+            await Shell.Current.DisplayAlert("Connection", $"{index}", "OK");
+
+            BookNow = await bookService.GetBooksNow(Language[index].key);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            await Shell.Current.DisplayAlert("Error", $"{ex.Message}", "OK");
+        }
+    }
+
+
+    // Command
 
     [RelayCommand]
     async Task GetTrendingBookType(string type)

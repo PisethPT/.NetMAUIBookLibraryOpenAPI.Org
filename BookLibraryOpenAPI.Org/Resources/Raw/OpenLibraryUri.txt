@@ -7,16 +7,34 @@ https://openlibrary.org/search/lists?q=
 
 https://openlibrary.org/works/OL25312237W.json
 ex: Text="{Binding Work.author_key, Converter={StaticResource stringConverter}}" // get author_key 
-
+  --------------------------------------------------
 https://openlibrary.org/languages.json
 
+=> json
+[
+  {
+    "name": "English",
+    "key": "/languages/eng",
+    "count": 17971401
+  },
+
+  --------------------------------------------------
+
 ex: https://openlibrary.org/languages/rum
+
+=> C# code : https://openlibrary.org/ + Langueges[0].key
     Code rum
     Name Romanian
 
  + noted:  ../languages/{query as 3 digit}
 
  https://openlibrary.org/search?q=language:rum
+
+ + search subjects
+ https://openlibrary.org/subjects.json
+
+ http://openlibrary.org/subjects/love.json
+
 
 
 
