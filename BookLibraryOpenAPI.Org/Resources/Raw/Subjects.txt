@@ -1,4 +1,28 @@
-﻿Arts
+﻿// Subjects
+
+uri = https://openlibrary.org/subjects/Architecture
+request = https://openlibrary.org/subjects/architecture.json
+
+{
+  "type": [
+    {
+      "arts": [
+        "Architecture",
+        "Art Instruction",
+        "Art History",
+        "Dance"
+      ],
+	  "animals": [
+        "Bears",
+        "Cats",
+        "Kittens"
+      ]
+    }
+  ]
+}
+------------------------------------
+
+Arts
 ------------------------------------
 Architecture
 Art Instruction

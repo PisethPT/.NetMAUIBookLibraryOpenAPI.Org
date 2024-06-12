@@ -1,0 +1,125 @@
+{
+    "types": [
+      {
+        "arts": [
+          "Architecture",
+          "Art Instruction",
+          "Art History",
+          "Dance",
+          "Design",
+          "Fashion",
+          "Film",
+          "Graphic Design",
+          "Music",
+          "Music Theory",
+          "Painting",
+          "Photography"
+        ],
+        "animals": [
+          "Bears",
+          "Cats",
+          "Kittens",
+          "Dogs",
+          "Puppies"
+        ],
+        "fiction": [
+          "Fantasy",
+          "Historical Fiction",
+          "Horror",
+          "Humor",
+          "Literature",
+          "Magic",
+          "Mystery and detective stories",
+          "Plays",
+          "Poetry",
+          "Romance",
+          "Science Fiction",
+          "Short Stories",
+          "Thriller",
+          "Young Adult"
+        ],
+        "scienceMath": [
+          "Biology",
+          "Chemistry",
+          "Mathematics",
+          "Physics",
+          "Programming"
+        ],
+        "businessFinance": [
+          "Management",
+          "Entrepreneurship",
+          "Business Economics",
+          "Business Success",
+          "Finance"
+        ],
+        "childrens": [
+          "Kids Books",
+          "Stories in Rhyme",
+          "Baby Books",
+          "Bedtime Books",
+          "Picture Books"
+        ],
+        "history": [
+          "Ancient Civilization",
+          "Archaeology",
+          "Anthropology",
+          "World War II",
+          "Social Life and Customs"
+        ],
+        "healthWellness": [
+          "Cooking",
+          "Cookbooks",
+          "Mental Health",
+          "Exercise",
+          "Nutrition",
+          "Self-help"
+        ],
+        "biography": [
+          "Autobiographies",
+          "History",
+          "Politics and Government",
+          "World War II",
+          "Women",
+          "Kings and Rulers",
+          "Composers",
+          "Artists"
+        ],
+        "socialSciences": [
+          "Anthropology",
+          "Religion",
+          "Political Science",
+          "Psychology"
+        ],
+        "places": [
+          "Brazil",
+          "India",
+          "Indonesia",
+          "United States"
+        ],
+        "textbooks": [
+          "History",
+          "Mathematics",
+          "Geography",
+          "Psychology",
+          "Algebra",
+          "Education",
+          "Business & Economics",
+          "Science",
+          "Chemistry",
+          "English Language",
+          "Physics",
+          "Computer Science"
+        ],
+        "booksByLanguage": [
+          "English",
+          "French",
+          "Spanish",
+          "German",
+          "Russian",
+          "Italian",
+          "Chinese",
+          "Japanese"
+        ]
+      }
+    ]
+  }

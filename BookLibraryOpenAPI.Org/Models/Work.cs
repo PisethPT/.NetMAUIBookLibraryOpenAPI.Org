@@ -23,3 +23,4 @@ public class Work
     public List<string> id_librivox { get; set; }
     public List<string> id_standard_ebooks { get; set; }
 }
+

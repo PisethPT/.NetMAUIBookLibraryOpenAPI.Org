@@ -60,11 +60,14 @@
                Padding="5,0,0,0"
                BackgroundColor="White"
                HasShadow="True"
-               BorderColor="SlateGray">
+               BorderColor="SlateGray"
+               x:Name="TrendingBookFrame">
             <CollectionView
                 ItemsSource="{Binding TrendingBook.works}">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal"/>
+                    <GridItemsLayout x:Name="TrendingGrid" Orientation="Horizontal"
+                                     Span="2"
+                                     HorizontalItemSpacing="0"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Work">
@@ -144,8 +147,8 @@
             <CollectionView
                 ItemsSource="{Binding TrendingBook.works}">
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical"
-                                     Span="2"
+                    <GridItemsLayout x:Name="OtherBooksGrid" Orientation="Vertical"
+                                     Span="4"
                                      VerticalItemSpacing="0"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
