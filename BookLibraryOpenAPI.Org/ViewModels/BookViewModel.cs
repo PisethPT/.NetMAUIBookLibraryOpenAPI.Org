@@ -24,7 +24,7 @@ public partial class BookViewModel : BaseViewModel
     {
         this.bookService = bookService;
         _= GetTrendingBook();
-        _= GetLanguages();
+       // _= GetLanguages();
     }
 
     async Task GetLanguages()

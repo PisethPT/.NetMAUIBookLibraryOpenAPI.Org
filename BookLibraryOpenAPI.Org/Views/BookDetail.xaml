@@ -112,9 +112,10 @@
                                        HorizontalOptions="Center"
                                        FontSize="Subtitle"
                                        TextColor="DarkGray"/>
-                                <Label Text="{Binding Work.language, Converter={StaticResource stringConverter}}"
+                                <Label Text="{Binding Work.language, Converter={StaticResource ToUpperCase}}"
                                        HorizontalOptions="Center"
                                        FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation"
                                        FontSize="18"/>
                             </StackLayout>
                         </Frame>
